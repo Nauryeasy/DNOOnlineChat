@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Вход</title>
+</head>
+<body>
+  {% if form.errors %}
+  <p>Логин или пароль были введены неверно. Попробуйте еще раз.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>У вашего аккаунта нет доступа к этой странице. Чтобы продолжить войдите с учетной записью, которая имеет доступ.</p>
+    {% else %}
+      <p>Пожалуйста войдите чтобы увидеть эту сраницу.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <table>
+
+  <tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+  </tr>
+  </table>
+
+  <input type="submit" value="вход" />
+  <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+  <p><a href="/register">Зарегестрироваться</a></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body >
+  <header>
+      <a href="{% url 'profile' %}" class="profile"><h4>{{ user.get_username }}</h4></a>
+      <a href="{% url 'logout'%}?next={{request.path}}" class="exit">Выход</a>
+  </header>
+  <aside>
+      <img class="logo" src="{% static 'main/img/fox.png' %}" alt="Лого">
+      <a href="/"><h2>Контакты</h2></a>
+      {% for el in contactlist %}
+        {% if el.person1 == user.get_username or el.person2 == user.get_username %}
+        <a href="{% url 'contact_chat' el.id %}"><h4>{{ el.person1 }} - {{ el.person2 }}</h4></a>
+        {% endif %}
+      {% endfor %}
+  </aside>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

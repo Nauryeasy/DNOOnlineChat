@@ -1,0 +1,137 @@
+{% load static %}
+body {
+    background-image: url('https://img5.goodfon.ru/wallpaper/nbig/f/70/dizain-fon-seryi-derevo-svet.jpg');
+}
+
+header {
+    height: 50px;
+    width: 100%;
+    background: #181818;
+    border-bottom: 3px solid #706f6f;
+    text-align: right;
+    color: #ff6b1c;
+}
+
+.exit {
+    position: relative;
+    top: -32px;
+    right: 20px;
+}
+
+header a {
+    color: #ff6b1c;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #b04912;
+}
+
+header .profile {
+    position: relative;
+    right: 130px;
+    top: 9px;
+}
+
+main {
+    position: relative;
+    left: 20%;
+    color: #ff6b1c;
+    width: 80%;
+    height: 100vh;
+}
+
+aside .logo {
+    margin-left: 42%;
+    height: 50px;
+    width: 50px;
+}
+
+aside {
+    background: #181818;
+    height: 100vh;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    overflow-x: hidden;
+    border-right: 3px solid #706f6f;
+    top: 0;
+    color: #ff6b1c;
+}
+aside h2 {
+    text-align: center;
+    text-shadow: 2px 2px 2px #b04912
+}
+
+aside a:hover {
+    color: #b04912;
+}
+
+aside a {
+    color: #ff6b1c;
+    text-decoration: none;
+}
+
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+.message_form {
+    background: gray;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    position: fixed;
+    width: 1000px;
+    left: -100px;
+    bottom: 20px;
+}
+
+.message_form button {
+    background: orange;
+    border: None;
+    margin-top: 4px;
+    float: right;
+}
+
+.message_form button:hover {
+    background: #b04912;
+}
+
+.export_message {
+    background: #181818;
+    position: relative;
+    left: 800px;
+    width: 300px;
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.export_message p {
+    margin-left: 5px;
+}
+
+.import_message {
+    border: 2px solid black;
+    background: #ff6b1c;
+    position: relative;
+    left: 50px;
+    color: white;
+    width: 300px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.import_message p {
+    margin-left: 5px;
+}
+.box {
+    height: 100px;
+}

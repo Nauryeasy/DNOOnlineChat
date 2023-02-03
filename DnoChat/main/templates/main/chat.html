@@ -1,0 +1,24 @@
+{% extends 'main/class.html' %}
+{% block content %}
+{% for el in messagelist %}
+    {% if el.id_contact == pk %}
+        {% if el.sender == user.get_username %}
+            <div class="export_message">
+                <p>{{ el.message }}</p>
+            </div>
+        {% else %}
+            <div class="import_message">
+                <p>{{ el.message }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<div class="box"></div>
+<form method="post" class="message_form">
+{% csrf_token %}
+{{ form.message }}
+<button class="btn btn-success" type="submit">Отправить</button>
+</form>
+<p>{{ error }}</p>
+{% endblock %}
+{% block title %}DNO! - онлайн чат{% endblock %}

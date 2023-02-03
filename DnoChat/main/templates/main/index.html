@@ -1,0 +1,11 @@
+{% extends 'main/class.html' %}
+{% block content %}
+
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="Submit" name="submit" value="Добавить"/>
+</form>
+<p>{{ error }}</p>
+{% endblock %}
+{% block title %}DNO! - онлайн чат{% endblock %}
